@@ -3,7 +3,7 @@ import sqlite3
 conn = sqlite3.connect("database.db")
 cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS categories (title text, publicid text)")
-cursor.execute("CREATE TABLE IF NOT EXISTS posts (publicid text, postid text, pic blob, likes int, subs int)")
+cursor.execute("CREATE TABLE IF NOT EXISTS posts (publicid text, postid text, pic blob, likes int, subs int, postdate text)")
 
 while True:
     str = input().split()
