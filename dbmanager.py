@@ -4,6 +4,7 @@ conn = sqlite3.connect("database.db")
 cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS categories (title text, publicid text)")
 cursor.execute("CREATE TABLE IF NOT EXISTS posts (publicid text, postid text, pic blob, likes int, subs int, postdate text)")
+cursor.execute("CREATE TABLE IF NOT EXISTS queue (publicid text, postid text)")
 
 while True:
     str = input().split()
@@ -21,10 +22,12 @@ while True:
             continue
         cursor.execute("DELETE FROM posts WHERE publicid=?", (str[1],))
         cursor.execute("DELETE FROM categories WHERE publicid=?", (str[1],))
+        cursor.execute("DELETE FROM queue WHERE publicid=?", (str[1],))
     elif str[0] == "clr":
         if len(str) < 2:
             print("wrong command")
             continue
         cursor.execute("DELETE FROM posts WHERE publicid=?", (str[1],))
+        cursor.execute("DELETE FROM queue WHERE publicid=?", (str[1],))
     else:
         print("unknown command")
