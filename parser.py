@@ -16,7 +16,7 @@ posts = posts[:-1]
 print(posts)
 r = requests.get("https://api.vk.com/method/wall.getById?posts="+posts+"&access_token="+a_token+"&v="+v)
 print(r.json())
-'''
+
 for cat in cursor1.execute("SELECT publicid, * FROM categories"):
     ownerid = cat[0]
     print(ownerid)
@@ -28,7 +28,7 @@ for cat in cursor1.execute("SELECT publicid, * FROM categories"):
         postid = post["id"]
         print(postid)
         cursor2.execute("INSERT INTO queue VALUES(?,?,?)", [ownerid, postid, post["date"]])
-'''
+
 conn.commit()
 
 
