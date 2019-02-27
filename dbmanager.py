@@ -3,7 +3,7 @@ import sqlite3
 conn = sqlite3.connect("database.db")
 cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS categories (title text, publicid text)")
-cursor.execute("CREATE TABLE IF NOT EXISTS posts (publicid text, postid text, pic blob, likes int, subs int, postdate text)")
+cursor.execute("CREATE TABLE IF NOT EXISTS posts (publicid text, postid text, pic blob, likes int, views int, postdate int)")
 cursor.execute("CREATE TABLE IF NOT EXISTS queue (publicid text, postid text, postdate int)")
 
 while True:
