@@ -5,7 +5,7 @@ from PIL import Image
 from io import BytesIO
 
 v = "5.92"
-a_token = "5d1b3c0842c3cf2b48f1b2ef5d1b2ed2911950e9b903a6ad4d91aea3b40757951fa6d8e323e836fb06cbe"
+a_token = ""
 conn = sqlite3.connect("database.db")
 cursor1 = conn.cursor()
 cursor2 = conn.cursor()
